@@ -1,0 +1,5 @@
+.notification {
+  border-radius: 8px;
+  color: gold;
+  box-shadow: inset 0 2px 12px 2px gold;
+}

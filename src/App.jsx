@@ -6,31 +6,53 @@ import Options from "./components/Options/Options";
 import Notification from "./components/Notification/Notification";
 
 function App() {
-  const [clicks, setClicks] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [clicks, setClicks] = useState(() => {
+    const savedClicks = window.localStorage.getItem("saved-clicks", {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+    if (savedClicks !== null) {
+      return JSON.parse(savedClicks);
+    }
+    return {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
   });
 
+  useEffect(() => {
+    window.localStorage.setItem("saved-clicks", JSON.stringify(clicks));
+  }, [clicks]);
+
   const updateFeedback = (feedbackType) => {
-    console.log(feedbackType);
-    if (feedbackType === "good") {
-      setClicks({ ...clicks, good: clicks.good + 1 });
-    } else if (feedbackType === "neutral") {
-      setClicks({ ...clicks, neutral: clicks.neutral + 1 });
-    } else {
-      setClicks({ ...clicks, bad: clicks.bad + 1 });
-    }
+    setClicks({ ...clicks, [feedbackType]: clicks[feedbackType] + 1 });
   };
-  useEffect(() => {}, [clicks]);
+
+  const handleReset = () => {
+    setClicks({ good: 0, neutral: 0, bad: 0 });
+  };
+
   const totalFeedback = clicks.good + clicks.neutral + clicks.bad;
-  console.log("totalFeedback", totalFeedback);
+  const positiveFeedback = Math.round((clicks.good / totalFeedback) * 100);
+
   return (
     <>
       <Description />
-      <Options updateFeedback={updateFeedback} />
+      <Options
+        updateFeedback={updateFeedback}
+        totalFeedback={totalFeedback}
+        handleReset={handleReset}
+      />
       <Notification totalFeedback={totalFeedback} />
-      <Feedback value={clicks} totalFeedback={totalFeedback} />
+      {totalFeedback > 0 && (
+        <Feedback
+          value={clicks}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
+      )}
     </>
   );
 }

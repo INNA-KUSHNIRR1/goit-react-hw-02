@@ -1,0 +1,20 @@
+.options {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.optionBtn {
+  /* border: none; */
+  background-color: rgb(48, 139, 192);
+  transition: transform 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+.optionBtn:hover,
+.optionBtn:focus {
+  outline: none;
+  background-color: rgb(26, 109, 156);
+  transform: scale(1.05);
+  box-shadow: 0 1px 15px 4px rgb(83, 83, 94);
+  transition: box-shadow 0.3s;
+  border: 1px solid rgb(29, 24, 24);
+}

@@ -1,9 +1,10 @@
-// import { useState } from "react";
+import style from "./Options.module.css";
 
-const Options = ({ updateFeedback }) => {
+const Options = ({ updateFeedback, totalFeedback, handleReset }) => {
   return (
-    <div>
+    <div className={style.options}>
       <button
+        className={style.optionBtn}
         onClick={() => {
           updateFeedback("good");
         }}
@@ -11,6 +12,7 @@ const Options = ({ updateFeedback }) => {
         Good
       </button>
       <button
+        className={style.optionBtn}
         onClick={() => {
           updateFeedback("neutral");
         }}
@@ -18,12 +20,18 @@ const Options = ({ updateFeedback }) => {
         Neutral
       </button>
       <button
+        className={style.optionBtn}
         onClick={() => {
           updateFeedback("bad");
         }}
       >
         Bad
       </button>
+      {totalFeedback > 0 && (
+        <button className={style.optionBtn} onClick={handleReset}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };
