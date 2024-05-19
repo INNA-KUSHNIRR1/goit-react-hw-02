@@ -23,6 +23,7 @@ a:hover {
 }
 
 body {
+  color: white;
   background-image: linear-gradient(
       to bottom,
       rgba(46, 47, 66, 0.7),

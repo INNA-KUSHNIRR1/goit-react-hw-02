@@ -16,7 +16,6 @@
 .optionBtn:hover,
 .optionBtn:focus {
   outline: none;
-  /* background-color: black; */
   box-shadow: 0 2px 12px 2px rgb(245, 7, 7), inset 0 2px 12px 2px rgb(245, 7, 7);
   transition: box-shadow 0.3s;
 }
