@@ -23,6 +23,15 @@ a:hover {
 }
 
 body {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(https://baldezh.top/uploads/posts/2022-08/thumbs/1660208463_36-funart-pro-p-fon-kafe-vnutri-krasivo-38.jpg);
+
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   display: flex;
   place-items: center;

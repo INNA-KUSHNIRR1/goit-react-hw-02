@@ -1,12 +1,13 @@
 .boxFeedback {
   font-size: 18px;
   margin-top: 40px;
-  box-shadow: 0 2px 12px 2px rgba(255, 217, 0, 0.884);
+  box-shadow: 0 2px 12px 2px rgb(128, 90, 146);
 }
 .typeFeedback {
-  background-color: black;
+  border-radius: 8px;
+  background-color: #111;
   padding: 8px;
-  box-shadow: inset 0 2px 12px 2px gold;
+  box-shadow: inset 0 2px 12px 4px rgb(247, 106, 50);
 }
 .span {
   font-weight: 600;
