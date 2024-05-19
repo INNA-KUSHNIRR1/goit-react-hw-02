@@ -4,7 +4,7 @@ const Options = ({ updateFeedback, totalFeedback, handleReset }) => {
   return (
     <div className={style.options}>
       <button
-        className={style.optionBtn}
+        className={style.glowOnHover}
         onClick={() => {
           updateFeedback("good");
         }}
@@ -12,7 +12,7 @@ const Options = ({ updateFeedback, totalFeedback, handleReset }) => {
         Good
       </button>
       <button
-        className={style.optionBtn}
+        className={style.glowOnHover}
         onClick={() => {
           updateFeedback("neutral");
         }}
@@ -20,7 +20,7 @@ const Options = ({ updateFeedback, totalFeedback, handleReset }) => {
         Neutral
       </button>
       <button
-        className={style.optionBtn}
+        className={style.glowOnHover}
         onClick={() => {
           updateFeedback("bad");
         }}
