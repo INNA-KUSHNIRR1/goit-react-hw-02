@@ -7,11 +7,7 @@ import Notification from "./components/Notification/Notification";
 
 function App() {
   const [clicks, setClicks] = useState(() => {
-    const savedClicks = window.localStorage.getItem("saved-clicks", {
-      good: 0,
-      neutral: 0,
-      bad: 0,
-    });
+    const savedClicks = window.localStorage.getItem("saved-clicks");
     if (savedClicks !== null) {
       return JSON.parse(savedClicks);
     }
@@ -45,7 +41,8 @@ function App() {
         totalFeedback={totalFeedback}
         handleReset={handleReset}
       />
-      <Notification totalFeedback={totalFeedback} />
+      {totalFeedback === 0 && <Notification />}
+
       {totalFeedback > 0 && (
         <Feedback
           value={clicks}
