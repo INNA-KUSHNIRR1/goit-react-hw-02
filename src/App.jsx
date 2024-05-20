@@ -41,14 +41,15 @@ function App() {
         totalFeedback={totalFeedback}
         handleReset={handleReset}
       />
-      {totalFeedback === 0 && <Notification />}
 
-      {totalFeedback > 0 && (
+      {totalFeedback > 0 ? (
         <Feedback
           value={clicks}
           totalFeedback={totalFeedback}
           positiveFeedback={positiveFeedback}
         />
+      ) : (
+        <Notification />
       )}
     </>
   );
